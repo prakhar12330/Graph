@@ -20,7 +20,7 @@ class Solution {
             int x=q.front();//queue me jo pada hai usse utha ke x me save kr lo
             q.pop();//queue me jo pada hai usse pop kr do;
             res.push_back(x);//uss node ko result vector me push krd do
-            for(auto i:adj[x])
+            for(auto i:adj[x])//uss node ke neighbours ko queue me push kr do
             {
                 if(!vis[i])
                 {
