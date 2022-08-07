@@ -1,2 +1,2 @@
 # Graph
-Contains Basic Implementation And Standard Solution Of Some Graph Problems
+Contains Basic Implementation And Solution Of Some  Standard Graph Problems
