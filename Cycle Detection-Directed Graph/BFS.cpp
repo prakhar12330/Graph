@@ -43,8 +43,8 @@ class Solution {
                 }
             }
         }
-        if(cnt==V)return false;
-        else return true;
+        if(cnt==V)return false;//if count==V--->Valid Topological Sort So, it will Not Be Cyclic
+        else return true;//if count!=V--->InValid Topological Sort So, it will Be Cyclic
         
     }
 };
