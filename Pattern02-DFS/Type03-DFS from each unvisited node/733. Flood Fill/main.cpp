@@ -16,6 +16,10 @@ public:
         int n=image[0].size();
         
         int color=image[sr][sc];
+        if(color == newColor)
+        {
+         return image;
+        }
         
         dfs(image,sr,sc,m,n,newColor,color);
         
