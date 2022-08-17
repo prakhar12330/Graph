@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    bool dfs(vector<vector<int>>& graph, vector<bool>&visited,vector<bool>&dfsVisited,vector<bool>&notsafeNode,int node)
+    bool dfs(vector<vector<int>>& graph, vector<bool>&visited,vector<bool>&dfsVisited,vector<bool>&cycle,int node)
     {
         visited[node]=true;
         dfsVisited[node]=true;
@@ -9,15 +9,15 @@ public:
         {
             if(!visited[it])
             {
-                if(dfs(graph,visited,dfsVisited,notsafeNode,it))
+                if(dfs(graph,visited,dfsVisited,cycle,it))
                 {
-                    notsafeNode[node]=true;
+                    cycle[node]=true;
                     return true;
                 }
             }
             else if(visited[it]&&dfsVisited[it])
             {
-                notsafeNode[node]=true;
+                cycle[node]=true;
                 return true;
             }
         }
@@ -29,19 +29,19 @@ public:
         int n=graph.size();
         vector<bool>visited(n,false);
         vector<bool>dfsVisited(n,false);
-        vector<bool>notsafeNode(n,false);
+        vector<bool>cycle(n,false);
         
         for(int i=0;i<n;i++)
         {
             if(!visited[i])
             {
-                dfs(graph,visited,dfsVisited,notsafeNode,i);
+                dfs(graph,visited,dfsVisited,cycle,i);
             }
         }
         vector<int>ans;
         for(int i=0;i<n;i++)
         {
-            if(!notsafeNode[i])
+            if(!cycle[i])
             {
                 ans.push_back(i);
             }
